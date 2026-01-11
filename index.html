@@ -9,11 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --terracotta: #B33D26; /* সামান্য ডার্ক করা হয়েছে পঠনযোগ্যতার জন্য */
-            --sage-deep: #2D3A15; /* ডার্ক সেজ গ্রিন টেক্সটের জন্য */
-            --charcoal-black: #111111; /* একদম গাঢ় কালো বডি টেক্সটের জন্য */
-            --earth-bg: #F9F6F0; /* চোখের আরামদায়ক ব্যাকগ্রাউন্ড */
-            --gray-text: #374151; /* রিডেবল গ্রে */
+            --terracotta: #B33D26;
+            --sage-deep: #2D3A15;
+            --charcoal-black: #111111;
+            --earth-bg: #F9F6F0;
         }
         body {
             font-family: 'Hind Siliguri', sans-serif;
@@ -42,8 +41,32 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(179, 61, 38, 0.4);
-            filter: brightness(1.1);
         }
+
+        /* FAQ Interactive Style */
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary {
+            color: var(--terracotta);
+        }
+        details {
+            transition: all 0.3s ease;
+        }
+        .faq-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.3s;
+        }
+        .faq-card:hover {
+            border-color: var(--terracotta);
+        }
+
         .hero-gradient {
             background: linear-gradient(to right, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 100%);
         }
@@ -55,7 +78,6 @@
     <nav class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <!-- Logo Path: images/logo.png -->
                 <div class="w-10 h-10 bg-terracotta rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">ম</div>
                 <span class="text-2xl font-bold text-terracotta font-serif">মৃৎশিল্প</span>
             </div>
@@ -71,10 +93,10 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-[85vh] flex items-center bg-black text-white overflow-hidden">
-        <!-- Background Path: images/hero-bg.jpg -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1565191999001-551c187427bb?auto=format&fit=crop&q=80&w=2070" 
-                 alt="Clay pots background" 
+            <!-- Image Path: images/hero.jpg -->
+            <img src="images/hero.jpg" onerror="this.src='https://media.gettyimages.com/id/483550684/photo/traditional-indian-potter-making-clay-pot-on-manual-pottery-wheel.jpg?s=612x612&w=gi&k=20&c=XrjY54gVUoVUqkmS1sdKhxKrhB-Lf5P8ZF3eQEV1gdY='" 
+                 alt="Hero Background" 
                  class="w-full h-full object-cover">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
@@ -84,7 +106,7 @@
                     রাসায়নিক মুক্ত <br><span class="text-terracotta">সুস্থ রান্নার বিপ্লব</span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-10 text-gray-100 font-medium max-w-2xl">
-                    শতভাগ প্রাকৃতিক ও সিসামমুক্ত মাটির পাত্রে রান্না করুন। আধুনিক বিষাক্ত কোটিং বর্জন করে ফিরে আসুন ঐতিহ্যের স্বাদে।
+                    শতভাগ প্রাকৃতিক ও সিসামমুক্ত মাটির পাত্রে রান্না করুন। আপনার সুস্বাস্থ্যের জন্য মাটির স্পর্শে ফিরে আসুন ঐতিহ্যের স্বাদে।
                 </p>
                 <div class="flex flex-wrap gap-5">
                     <a href="#shop" class="btn-primary text-lg">সংগ্রহ দেখুন</a>
@@ -98,7 +120,7 @@
     <section id="comparison" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-serif">মাটির কড়াই বনাম নন-স্টিক প্যান</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 font-serif text-charcoal-black">মাটির কড়াই বনাম নন-স্টিক প্যান</h2>
                 <p class="text-gray-700 max-w-2xl mx-auto text-xl font-semibold">আপনার পরিবারের সুস্বাস্থ্য কি একটি সস্তা কোটিংয়ের চেয়ে বেশি মূল্যবান নয়?</p>
             </div>
 
@@ -111,20 +133,20 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold font-serif" style="color: var(--sage-deep);">১০০% প্রাকৃতিক মাটি</h3>
+                        <h3 class="text-3xl font-bold font-serif text-green-900">১০০% প্রাকৃতিক মাটি</h3>
                     </div>
                     <ul class="space-y-8 text-lg font-bold">
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-green-700 text-2xl">✓</span>
-                            <span class="text-gray-900">সিসামুক্ত: <span class="font-medium text-gray-700">কোনো ক্ষতিকারক লেড বা ক্যাডমিয়াম নেই।</span></span>
+                            <span>সিসামুক্ত: <span class="font-medium text-gray-700">কোনো ক্ষতিকারক লেড বা ক্যাডমিয়াম নেই।</span></span>
                         </li>
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-green-700 text-2xl">✓</span>
-                            <span class="text-gray-900">পুষ্টিগুণ: <span class="font-medium text-gray-700">ফার-ইনফ্রারেড তাপ খাবারের ভিটামিন অক্ষুণ্ণ রাখে।</span></span>
+                            <span>পুষ্টিগুণ: <span class="font-medium text-gray-700">ফার-ইনফ্রারেড তাপ খাবারের ভিটামিন অক্ষুণ্ণ রাখে।</span></span>
                         </li>
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-green-700 text-2xl">✓</span>
-                            <span class="text-gray-900">পিএইচ ব্যালেন্স: <span class="font-medium text-gray-700">মাটির ক্ষারীয় গুণ খাবারের এসিডিটি কমায়।</span></span>
+                            <span>পিএইচ ব্যালেন্স: <span class="font-medium text-gray-700">মাটির ক্ষারীয় গুণ খাবারের এসিডিটি কমায়।</span></span>
                         </li>
                     </ul>
                 </div>
@@ -140,17 +162,17 @@
                         <h3 class="text-3xl font-bold font-serif text-red-800">বিষাক্ত নন-স্টিক (Teflon)</h3>
                     </div>
                     <ul class="space-y-8 text-lg font-bold">
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-red-600 text-2xl">✕</span>
-                            <span class="text-gray-900">PFAS গ্যাস: <span class="font-medium text-gray-600">উচ্চতাপে ক্যানসার সৃষ্টিকারী বিষাক্ত ধোঁয়া নির্গত হয়।</span></span>
+                            <span>PFAS গ্যাস: <span class="font-medium text-gray-600">উচ্চতাপে ক্যানসার সৃষ্টিকারী বিষাক্ত ধোঁয়া নির্গত হয়।</span></span>
                         </li>
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-red-600 text-2xl">✕</span>
-                            <span class="text-gray-900">কোটিং চিপস: <span class="font-medium text-gray-600">স্ক্র্যাচ পড়লে প্লাস্টিক কোটিং সরাসরি পেটে যায়।</span></span>
+                            <span>কোটিং চিপস: <span class="font-medium text-gray-600">স্ক্র্যাচ পড়লে প্লাস্টিক কোটিং সরাসরি খাবারের সাথে পেটে যায়।</span></span>
                         </li>
-                        <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-4 text-gray-900">
                             <span class="text-red-600 text-2xl">✕</span>
-                            <span class="text-gray-900">অল্পস্থায়ী: <span class="font-medium text-gray-600">কোটিং নষ্ট হলে পাত্রটি সম্পূর্ণ বিষাক্ত হয়ে যায়।</span></span>
+                            <span>অল্পস্থায়ী: <span class="font-medium text-gray-600">কোটিং নষ্ট হলে পাত্রটি স্বাস্থ্যঝুঁকি তৈরি করে।</span></span>
                         </li>
                     </ul>
                 </div>
@@ -162,22 +184,22 @@
     <section id="shop" class="py-24" style="background-color: #F0EDE5;">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif">আমাদের সিগনেচার কালেকশন</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif text-charcoal-black">আমাদের সিগনেচার কালেকশন</h2>
                 <p class="text-gray-800 text-lg font-bold">নিপুণ কারিগরদের তৈরি সেরা মাটির সরঞ্জাম</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Product 1: images/frypan.jpg -->
+                <!-- Product 1: images/image-1.jpg -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                     <div class="h-72 overflow-hidden bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1628102422209-64670086786c?auto=format&fit=crop&q=80&w=1000" 
+                        <img src="images/image-1.jpg" onerror="this.src='https://m.media-amazon.com/images/I/61Z7D-h8ZiL.jpg'" 
                              alt="Fry Pan" 
                              class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-8">
                         <span class="bg-orange-100 text-terracotta text-xs font-black uppercase px-3 py-1 rounded-full">বেস্ট সেলার</span>
                         <h3 class="text-2xl font-bold my-4 font-serif">দি এভরিডে ফ্রাই প্যান</h3>
-                        <p class="text-gray-700 font-medium mb-8">ভাজি বা অল্প তেলে রান্নার জন্য এটি অতুলনীয় এবং দীর্ঘস্থায়ী।</p>
+                        <p class="text-gray-700 font-medium mb-8 text-lg">ভাজি বা অল্প তেলে রান্নার জন্য এটি অতুলনীয় এবং টেকসই।</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-6">
                             <span class="text-2xl font-black text-terracotta">৳ ৯৫০</span>
                             <button class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-terracotta transition-colors">কিনুন</button>
@@ -185,17 +207,17 @@
                     </div>
                 </div>
 
-                <!-- Product 2: images/currypot.jpg -->
+                <!-- Product 2: images/image-2.jpg -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                     <div class="h-72 overflow-hidden bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1590234150536-5089f257d971?auto=format&fit=crop&q=80&w=1000" 
+                        <img src="images/image-2.jpg" onerror="this.src='https://m.media-amazon.com/images/I/81ySkKYkmSL._AC_SL1500_.jpg'" 
                              alt="Curry Pot" 
                              class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-8">
                         <span class="bg-green-100 text-green-800 text-xs font-black uppercase px-3 py-1 rounded-full">জনপ্রিয়</span>
                         <h3 class="text-2xl font-bold my-4 font-serif">গভীর কারি পট</h3>
-                        <p class="text-gray-700 font-medium mb-8">ঐতিহ্যবাহী মাছ বা মাংসের ঝোলের আসল স্বাদ ফিরিয়ে আনে।</p>
+                        <p class="text-gray-700 font-medium mb-8 text-lg">ঐতিহ্যবাহী মাছ বা মাংসের ঝোলের আসল স্বাদ ফিরিয়ে আনে।</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-6">
                             <span class="text-2xl font-black text-terracotta">৳ ১,৪৫০</span>
                             <button class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-terracotta transition-colors">কিনুন</button>
@@ -203,17 +225,17 @@
                     </div>
                 </div>
 
-                <!-- Product 3: images/dutchoven.jpg -->
+                <!-- Product 3: images/image-3.jpg -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                     <div class="h-72 overflow-hidden bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1544070078-a212eda27b49?auto=format&fit=crop&q=80&w=1000" 
+                        <img src="images/image-3.jpg" onerror="https://m.media-amazon.com/images/I/71ZVRkOnWWL._AC_UF1000,1000_QL80_.jpg'" 
                              alt="Dutch Oven" 
                              class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-8">
                         <span class="bg-gray-100 text-gray-800 text-xs font-black uppercase px-3 py-1 rounded-full">লিমিটেড</span>
                         <h3 class="text-2xl font-bold my-4 font-serif">আর্টিসান ডাচ ওভেন</h3>
-                        <p class="text-gray-700 font-medium mb-8">স্লো-কুকিং বা দমে রান্নার জন্য এটি বিশ্বসেরা পছন্দ।</p>
+                        <p class="text-gray-700 font-medium mb-8 text-lg">স্লো-কুকিং বা দমে রান্নার জন্য এটি বিশ্বসেরা পছন্দ।</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-6">
                             <span class="text-2xl font-black text-terracotta">৳ ২,৮০০</span>
                             <button class="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-terracotta transition-colors">কিনুন</button>
@@ -224,19 +246,57 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section (Prosnoutthor) -->
     <section id="faq" class="py-24 bg-zinc-900 text-white">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-4xl font-bold text-center mb-16 font-serif">সাধারণ কিছু জিজ্ঞাসা</h2>
-            <div class="space-y-8">
-                <div class="bg-white/10 p-8 rounded-3xl border border-white/20 hover:border-terracotta transition-colors">
-                    <h3 class="text-xl font-bold mb-4 text-orange-400">১. মাটির পাত্র কি সরাসরি চুলায় ফেটে যায়?</h3>
-                    <p class="text-gray-200 font-medium leading-relaxed">নাহ, যদি আপনি সরাসরি হাই-ফ্লেমে না দিয়ে হালকা তাপ দিয়ে রান্না শুরু করেন। মাটির পাত্র তাপ সইতে পারে, তবে হঠাৎ তাপমাত্রার পরিবর্তন (যেমন গরম পাত্রে ঠান্ডা জল) এড়িয়ে চলতে হবে।</p>
-                </div>
-                <div class="bg-white/10 p-8 rounded-3xl border border-white/20 hover:border-terracotta transition-colors">
-                    <h3 class="text-xl font-bold mb-4 text-orange-400">২. পরিষ্কার করার জন্য কি সাবান প্রয়োজন?</h3>
-                    <p class="text-gray-200 font-medium leading-relaxed">কখনোই না! সাবানের কেমিক্যাল মাটির রন্ধ্রে ঢুকে যেতে পারে। পরিষ্কারের জন্য শুধু কুসুম গরম জল এবং একটু নারিকেলের ছোবড়া ব্যবহার করুন।</p>
-                </div>
+            <div class="space-y-4">
+                
+                <!-- Q1 -->
+                <details class="faq-card p-6 rounded-2xl group">
+                    <summary class="text-xl font-bold flex justify-between items-center">
+                        ১. মাটির পাত্র কি সরাসরি চুলায় ফেটে যাওয়ার ভয় থাকে?
+                        <span class="text-terracotta group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 font-medium leading-relaxed">নাহ, তবে কিছু নিয়ম মানতে হয়। রান্নার শুরুতে হাই-ফ্লেমে না দিয়ে হালকা তাপ দিয়ে পাত্রটি গরম করে নিতে হয়। এছাড়া গরম মাটির পাত্রে কখনো ঠান্ডা জল দেবেন না, এতে পাত্র ফেটে যাওয়ার সম্ভাবনা থাকে।</p>
+                </details>
+
+                <!-- Q2 -->
+                <details class="faq-card p-6 rounded-2xl group">
+                    <summary class="text-xl font-bold flex justify-between items-center">
+                        ২. আমি কি এটি ইন্ডাকশন চুলায় ব্যবহার করতে পারব?
+                        <span class="text-terracotta group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 font-medium leading-relaxed">মাটি চুম্বকীয় নয় বলে সরাসরি ইন্ডাকশনে কাজ করবে না। তবে বাজারে পাওয়া যায় এমন একটি 'ইন্ডাকশন অ্যাডাপ্টার প্লেট' মাটির পাত্রের নিচে বসিয়ে আপনি অনায়াসেই ইন্ডাকশন চুলায় রান্না করতে পারবেন।</p>
+                </details>
+
+                <!-- Q3 -->
+                <details class="faq-card p-6 rounded-2xl group">
+                    <summary class="text-xl font-bold flex justify-between items-center">
+                        ৩. পাত্র পরিষ্কার করার জন্য কি সাবান বা ডিটারজেন্ট ব্যবহার করা যাবে?
+                        <span class="text-terracotta group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 font-medium leading-relaxed">একদমই না! মাটির পাত্রে অসংখ্য ক্ষুদ্র ছিদ্র থাকে। সাবান ব্যবহার করলে কেমিক্যাল রন্ধ্রে ঢুকে যেতে পারে যা পরবর্তী রান্নায় মিশে যাবে। পরিষ্কারের জন্য শুধু কুসুম গরম জল এবং মৃদু ব্রাশ বা নারিকেলের ছোবড়া ব্যবহার করুন।</p>
+                </details>
+
+                <!-- Q4 -->
+                <details class="faq-card p-6 rounded-2xl group">
+                    <summary class="text-xl font-bold flex justify-between items-center">
+                        ৪. নতুন মাটির পাত্র প্রথমবার ব্যবহারের নিয়ম কী?
+                        <span class="text-terracotta group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 font-medium leading-relaxed">প্রথমবার ব্যবহারের আগে পাত্রটি অন্তত ২৪ ঘণ্টা পরিষ্কার জলে ভিজিয়ে রাখুন। এরপর শুকিয়ে নিয়ে ভালো করে ভোজ্য তেল মাখিয়ে হালকা আঁচে গরম করুন। এই প্রক্রিয়ায় পাত্রটি রান্নার জন্য প্রস্তুত বা 'সিজন' হয়।</p>
+                </details>
+
+                <!-- Q5 -->
+                <details class="faq-card p-6 rounded-2xl group">
+                    <summary class="text-xl font-bold flex justify-between items-center">
+                        ৫. মাটির পাত্রে রান্না করা খাবার কতক্ষণ ভালো থাকে?
+                        <span class="text-terracotta group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 font-medium leading-relaxed">মাটির পাত্র দীর্ঘক্ষণ তাপ ধরে রাখতে পারে এবং এটি একটি প্রাকৃতিক ইনসুলেটর হিসেবে কাজ করে। ফলে খাবার অনেকক্ষণ গরম থাকে এবং খাবারের আর্দ্রতা বজায় থাকে যা খাবারকে দীর্ঘক্ষণ তাজা ও সুস্বাদু রাখে।</p>
+                </details>
+
             </div>
         </div>
     </section>
@@ -252,8 +312,8 @@
                     </div>
                     <p class="text-gray-900 font-bold leading-relaxed mb-6">আমরা মাটির কারিগর। আমাদের লক্ষ্য প্রতিটি রান্নাঘরে শতভাগ প্রাকৃতিক এবং বিষমুক্ত রান্নার সরঞ্জাম পৌঁছে দেওয়া।</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-600 hover:text-terracotta font-bold">Facebook</a>
-                        <a href="#" class="text-gray-600 hover:text-terracotta font-bold">Instagram</a>
+                        <a href="#" class="text-gray-700 hover:text-terracotta font-bold transition-colors">Facebook</a>
+                        <a href="#" class="text-gray-700 hover:text-terracotta font-bold transition-colors">Instagram</a>
                     </div>
                 </div>
                 <div>
@@ -266,7 +326,7 @@
                 </div>
                 <div>
                     <h4 class="text-xl font-bold mb-6 font-serif">যোগাযোগ</h4>
-                    <p class="text-gray-900 font-bold mb-4">অর্ডার করতে বা যেকোনো তথ্যের জন্য কল করুন:</p>
+                    <p class="text-gray-900 font-bold mb-4">অর্ডার বা তথ্যের জন্য সরাসরি কল করুন:</p>
                     <p class="text-2xl font-black text-terracotta mb-6">০১৭০০-০০০০০০</p>
                     <div class="flex flex-col gap-3">
                         <input type="email" placeholder="আপনার ইমেইল" class="bg-gray-100 border-2 border-gray-200 px-6 py-3 rounded-full focus:border-terracotta outline-none transition-all font-bold">
