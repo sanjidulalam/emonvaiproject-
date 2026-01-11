@@ -1,64 +1,293 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মৃৎশিল্প | বিষমুক্ত ও প্রাকৃতিক রান্নার সূচনা</title>
+    <title>মৃৎশিল্প | প্রিমিয়াম মাটির তৈজসপত্র</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&family=Hind+Siliguri:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --terracotta: #E2725B;
+            --terracotta: #CC543A;
             --sage: #8A9A5B;
             --charcoal: #333333;
-            --sand: #FDFBF7;
+            --earth: #F4EFE6;
         }
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background-color: var(--sand);
+            background-color: var(--earth);
             color: var(--charcoal);
             scroll-behavior: smooth;
         }
-        h1, h2, h3, h4, .font-serif {
+        h1, h2, h3, .font-serif {
             font-family: 'Noto Serif Bengali', serif;
         }
         .bg-terracotta { background-color: var(--terracotta); }
         .text-terracotta { color: var(--terracotta); }
+        .border-terracotta { border-color: var(--terracotta); }
         .bg-sage { background-color: var(--sage); }
         .text-sage { color: var(--sage); }
-        .bg-charcoal { background-color: var(--charcoal); }
-        
-        .product-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: transform 0.2s, opacity 0.2s;
+            display: inline-block;
         }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -15px rgba(226, 114, 91, 0.2);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-terracotta rounded-full flex items-center justify-center text-white font-bold text-xl">ম</div>
+                <span class="text-2xl font-bold text-terracotta font-serif">মৃৎশিল্প</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold text-charcoal">
+                <a href="#home" class="hover:text-terracotta transition">হোম</a>
+                <a href="#comparison" class="hover:text-terracotta transition">মাটি বনাম টেফলন</a>
+                <a href="#shop" class="hover:text-terracotta transition">দোকান</a>
+                <a href="#faq" class="hover:text-terracotta transition">প্রশ্নোত্তর</a>
+            </div>
+            <a href="#shop" class="btn-primary text-sm">কিনুন</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[80vh] flex items-center bg-charcoal text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1565191999001-551c187427bb?auto=format&fit=crop&q=80&w=2070" alt="Clay pots background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">রাসায়নিক মুক্ত <br><span class="text-terracotta">সুস্থ রান্নার বিপ্লব</span></h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">শতভাগ প্রাকৃতিক ও সিসামুক্ত মাটির পাত্রে রান্না করুন। আপনার রান্নাঘরকে বিষাক্ত টেফলন মুক্ত করার এখনই সময়।</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#shop" class="btn-primary text-lg px-10 py-4">সংগ্রহ দেখুন</a>
+                    <a href="#comparison" class="border border-white/30 px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">কেন বদলাবেন?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section: Clay vs Teflon -->
+    <section id="comparison" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 font-serif">মাটির কড়াই বনাম নন-স্টিক প্যান</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">আপনার স্বাস্থ্য কি সস্তা কোটিংয়ের চেয়ে বেশি মূল্যবান নয়?</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+                <!-- Clay Side -->
+                <div class="bg-earth p-10 md:p-16">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-sage p-3 rounded-full text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold font-serif text-sage">১০০% প্রাকৃতিক মাটি</h3>
+                    </div>
+                    <ul class="space-y-6 text-lg">
+                        <li class="flex items-start gap-3">
+                            <span class="text-sage font-bold">✓</span>
+                            <span><strong>সিসামুক্ত:</strong> কোনো লেড বা ক্যাডমিয়াম নেই।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-sage font-bold">✓</span>
+                            <span><strong>পুষ্টিগুণ:</strong> ফার-ইনফ্রারেড তাপে খাবারের ভিটামিন বজায় থাকে।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-sage font-bold">✓</span>
+                            <span><strong>অ্যালকালাইন:</strong> খাবারের অতিরিক্ত অম্লতা (Acidity) নিয়ন্ত্রণ করে।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-sage font-bold">✓</span>
+                            <span><strong>স্বাদ:</strong> মাটির সোঁদা গন্ধে রান্নায় আসে অনন্য স্বাদ।</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Teflon Side -->
+                <div class="bg-gray-100 p-10 md:p-16 border-l border-gray-200">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-red-500 p-3 rounded-full text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold font-serif text-red-600">বিষাক্ত নন-স্টিক (Teflon)</h3>
+                    </div>
+                    <ul class="space-y-6 text-lg text-gray-500">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <span><strong>PFAS/PFOA:</strong> উচ্চতাপে ক্যানসার সৃষ্টিকারী গ্যাস নির্গত হয়।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <span><strong>কোটিং চিপস:</strong> স্ক্র্যাচ পড়লে কোটিং খাবারের সাথে পেটে যায়।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <span><strong>পরিবেশের ক্ষতি:</strong> এগুলো কখনো মাটিতে মেশে না (Forever Chemicals)।</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <span><strong>টেকসই নয়:</strong> ১-২ বছর পর কোটিং নষ্ট হয়ে গেলে ব্যবহার অনুপযোগী।</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section id="shop" class="py-24 bg-earth/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 font-serif">আমাদের সিগনেচার কালেকশন</h2>
+                <p class="text-gray-600">হস্তশিল্পের নিপুণ কারুকাজ এখন আপনার হেঁশেলের জন্য।</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1628102422209-64670086786c?auto=format&fit=crop&q=80&w=1000" alt="Skillet" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold uppercase tracking-widest text-terracotta">সেরা মান</span>
+                        <h3 class="text-2xl font-bold my-2 font-serif">দি এভরিডে ফ্রাই প্যান</h3>
+                        <p class="text-gray-600 mb-6">ভাজি বা অল্প তেলে রান্নার জন্য আদর্শ। শতভাগ প্রাকৃতিক সীল করা।</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-terracotta">৳ ৯৫০</span>
+                            <button class="btn-primary">অর্ডার করুন</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590234150536-5089f257d971?auto=format&fit=crop&q=80&w=1000" alt="Curry Pot" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold uppercase tracking-widest text-sage">জনপ্রিয়</span>
+                        <h3 class="text-2xl font-bold my-2 font-serif">গভীর কারি পট</h3>
+                        <p class="text-gray-600 mb-6">মাছ বা মাংসের ঝোল রান্নার জন্য সেরা। তাপ ধরে রাখে দীর্ঘক্ষণ।</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-terracotta">৳ ১,৪৫০</span>
+                            <button class="btn-primary">অর্ডার করুন</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544070078-a212eda27b49?auto=format&fit=crop&q=80&w=1000" alt="Dutch Oven" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs font-bold uppercase tracking-widest text-charcoal">প্রিমিয়াম</span>
+                        <h3 class="text-2xl font-bold my-2 font-serif">আর্টিসান ডাচ ওভেন</h3>
+                        <p class="text-gray-600 mb-6">স্লো-কুকিংয়ের জন্য অনন্য। পরিবারের সবার জন্য স্বাস্থ্যকর খাবার।</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-terracotta">৳ ২,৮০০</span>
+                            <button class="btn-primary">অর্ডার করুন</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education/Seasoning -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1518291344630-4857135fb583?auto=format&fit=crop&q=80&w=1000" alt="Seasoning" class="rounded-3xl shadow-2xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6 font-serif">কিভাবে মাটির পাত্র 'সিজনিং' করবেন?</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">মাটির পাত্র দীর্ঘস্থায়ী করতে সঠিক সিজনিং জরুরি। এটি ব্যবহারের আগে অন্তত ২৪ ঘণ্টা পরিষ্কার জলে ডুবিয়ে রাখুন, তারপর শুকিয়ে ভোজ্য তেল মাখিয়ে হালকা তাপে গরম করুন।</p>
+                    <a href="#" class="text-terracotta font-bold text-lg flex items-center gap-2 hover:underline">
+                        সম্পূর্ণ গাইডটি পড়ুন
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-charcoal text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl font-bold text-center mb-16 font-serif">প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+            <div class="space-y-8">
+                <div class="border-b border-white/10 pb-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-terracotta">?</span> মাটির পাত্র ফেটে যাওয়া কিভাবে রোধ করা যায়?
+                    </h3>
+                    <p class="text-gray-400 pl-6">হঠাৎ তাপমাত্রার পরিবর্তন মাটির পাত্রের জন্য ক্ষতিকর। সবসময় হালকা তাপে রান্না শুরু করুন এবং কখনোই গরম পাত্রে ঠান্ডা জল দেবেন না।</p>
+                </div>
+                <div class="border-b border-white/10 pb-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-terracotta">?</span> আমি কি ইন্ডাকশন চুলায় এটি ব্যবহার করতে পারব?
+                    </h3>
+                    <p class="text-gray-400 pl-6">সরাসরি নয়। ইন্ডাকশন চুলায় ব্যবহারের জন্য একটি 'ইন্ডাকশন অ্যাডাপ্টার ডিস্ক' ব্যবহার করতে হবে। তবে এটি গ্যাস এবং ইলেকট্রিক ওভেনে সরাসরি ব্যবহার করা যায়।</p>
+                </div>
+                <div class="border-b border-white/10 pb-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-terracotta">?</span> পরিষ্কার করার নিয়ম কী?
+                    </h3>
+                    <p class="text-gray-400 pl-6">মাটির পাত্রে কখনোই সাবান বা ডিটারজেন্ট ব্যবহার করবেন না। উষ্ণ জল এবং মৃদু ব্রাশ ব্যবহার করুন। মাটি নিজেই ছিদ্রযুক্ত হওয়ায় এটি সহজেই পরিষ্কার হয়।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-sage">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4 font-serif">সুস্থ রান্নার টিপস পেতে চান?</h2>
+            <p class="mb-8 opacity-90">আমাদের নিউজলেটারে জয়েন করুন এবং পান "হেলদি কুকিং গাইড" একদম ফ্রিতে।</p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="আপনার ইমেইল ঠিকানা" class="flex-grow px-6 py-4 rounded-full text-charcoal focus:outline-none">
+                <button type="submit" class="bg-terracotta px-8 py-4 rounded-full font-bold hover:scale-105 transition">সাবস্ক্রাইব</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-gray-200">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-terracotta rounded-full flex items-center justify-center text-white font-bold">ম</div>
+                <span class="text-xl font-bold text-terracotta font-serif tracking-widest">মৃৎশিল্প</span>
+            </div>
+            <div class="text-gray-500 text-sm">
+                © ২০২৪ মৃৎশিল্প। সকল স্বত্ব সংরক্ষিত। <br>
+                মেড ইন বাংলাদেশ | ১০০% সিসামুক্ত মাটির পণ্য।
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-terracotta">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-terracotta">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
